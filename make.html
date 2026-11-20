@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ссылка на ДЗ</title>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#f3f5fb,#0f1220);--card:light-dark(#fff,#181c2e);--ink:light-dark(#151a2d,#e9ecf7);--mute:light-dark(#5d647c,#9aa2bd);--line:light-dark(#dfe3ef,#2a3049);--brand:light-dark(#2846d8,#7d93ff);--bad:light-dark(#d63c22,#ff866f);--ok:light-dark(#0b8a5f,#3fd39b)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Onest,system-ui,sans-serif}
+main{max-width:780px;margin:0 auto;padding:32px 16px}
+h1{font-size:32px;line-height:1.1;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px}
+textarea{width:100%;min-height:260px;font:13px/1.4 ui-monospace,Consolas,monospace;color:inherit;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px}
+.btn{background:var(--brand);color:#fff;border:0;border-radius:12px;padding:12px 20px;font:inherit;font-weight:600;cursor:pointer;min-height:44px;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-items:center}
+.out{word-break:break-all;font:13px/1.4 ui-monospace,Consolas,monospace;background:var(--bg);border-radius:10px;padding:10px;max-height:140px;overflow:auto}
+.note{color:var(--mute);font-size:14px}.err{color:var(--bad)}.ok{color:var(--ok)}
+</style>
+</head>
+<body>
+<main>
+<h1>Ссылка на домашнее задание</h1>
+<p class="note">Вставьте JSON, который сделал Claude, и получите ссылку. Задание хранится внутри самой ссылки, поэтому загружать файл на GitHub не нужно.</p>
+<div class="card">
+  <textarea id="src" placeholder='{"title": "...", "sections": [...]}'></textarea>
+  <div class="row"><button class="btn" id="go">Сделать ссылку</button><span id="msg" class="note"></span></div>
+</div>
+<div class="card" id="res" hidden>
+  <div class="out" id="link"></div>
+  <div class="row"><button class="btn" id="copy">Скопировать</button><a class="btn ghost" id="open" target="_blank" rel="noopener">Открыть</a><span class="note" id="len"></span></div>
+</div>
+</main>
+<script>
+{
+const $=id=>document.getElementById(id);
+const BASE=location.origin+location.pathname.replace(/make\.html$/,"");
+async function encode(obj){
+  const data=new TextEncoder().encode(JSON.stringify(obj));
+  const s=new Blob([data]).stream().pipeThrough(new CompressionStream("deflate-raw"));
+  const buf=new Uint8Array(await new Response(s).arrayBuffer()); let bin="";
+  for(let i=0;i<buf.length;i+=0x8000) bin+=String.fromCharCode(...buf.subarray(i,i+0x8000));
+  return btoa(bin).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+}
+$("go").onclick=async()=>{
+  const msg=$("msg"); msg.className="note";
+  let txt=$("src").value.trim().replace(/^```(json)?/,"").replace(/```$/,"");
+  let obj; try{ obj=JSON.parse(txt); }catch(e){ msg.className="err"; msg.textContent="Это не JSON: "+e.message; return; }
+  if(!obj.title||!Array.isArray(obj.sections)){ msg.className="err"; msg.textContent="Нет title или sections."; return; }
+  const url=BASE+"#d="+await encode(obj);
+  $("link").textContent=url; $("open").href=url; $("res").hidden=false;
+  $("len").textContent=url.length+" символов"+(url.length>3800?" — длинная: в Telegram отправляйте отдельным сообщением или спрячьте под текст":"");
+  msg.className="ok"; msg.textContent="Готово. Откройте и проверьте перед отправкой.";
+};
+$("copy").onclick=()=>{ const t=$("link").textContent; navigator.clipboard.writeText(t).then(()=>$("copy").textContent="Скопировано",()=>{ const r=document.createRange(); r.selectNodeContents($("link")); getSelection().removeAllRanges(); getSelection().addRange(r); }); };
+}
+</script>
+</body>
+</html>

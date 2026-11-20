@@ -374,13 +374,26 @@ app.addEventListener("click", e=>{
 /* ---------- загрузка ---------- */
 function bundle(){ try{ return JSON.parse(document.getElementById("hw-bundle").textContent||"{}") }catch(e){ return {} } }
 function hwId(){ const q=new URLSearchParams(location.search).get("hw"); return q || decodeURIComponent(location.hash.slice(1)) || ""; }
+async function fromLink(code){
+  const b64=code.replace(/-/g,"+").replace(/_/g,"/"); const bin=atob(b64+"===".slice((b64.length+3)%4));
+  const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));
+  const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+  return JSON.parse(await new Response(stream).text());
+}
 async function boot(){
-  const id=hwId(); clearInterval(timerId);
+  clearInterval(timerId);
+  const m = location.hash.match(/^#d=([\w\-]+)/) || location.search.match(/[?&]d=([\w\-]+)/);
+  if(m){ let hw; try{ hw=await fromLink(m[1]); }catch(e){ app.innerHTML=`<main class="wrap" style="padding-top:40px"><div class="card"><h2>Ссылка повреждена</h2><p>Похоже, ссылка скопировалась не полностью. Попросите преподавателя прислать её ещё раз.</p></div></main>`; return; }
+    start(hw, hw.id||"link"); return; }
+  const id=hwId();
   if(!id){ landing(); return; }
   if(!/^[\w\-]+$/.test(id)){ app.innerHTML=`<main class="wrap"><div class="card err">Неверная ссылка.</div></main>`; return; }
   let hw = bundle()[id];
   if(!hw){ try{ const r=await fetch(CONFIG.folder+id+".json",{cache:"no-store"}); if(!r.ok) throw 0; hw=await r.json(); }
     catch(e){ app.innerHTML=`<main class="wrap" style="padding-top:40px"><div class="card"><h2>Задание не найдено</h2><p>Проверьте ссылку или попросите преподавателя прислать её ещё раз. Если файл только что загружен, подождите 1–2 минуты и обновите страницу.</p></div></main>`; return; } }
+  start(hw, id);
+}
+function start(hw, id){
   HW=hw; HW.id=HW.id||id; KEY="hw:"+HW.id+(HW.version?":"+HW.version:"");
   ST = load() || {name:"", answers:{}, checked:{}, crit:{}, started:Date.now()};
   ST.crit=ST.crit||{}; document.title=HW.title; renderAll();
