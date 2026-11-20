@@ -1,0 +1,105 @@
+{
+  "id": "demo-lesson",
+  "title": "Travel stories: Past Simple vs Present Perfect",
+  "student": "Тестовый ученик",
+  "level": "B1",
+  "topic": "Путешествия",
+  "due": "27.11.2026",
+  "intro": "Привет! Это домашка по последнему уроку: лексика по теме **Travel** и разница между **Past Simple** и **Present Perfect**.\n\nВыполняй разделы по порядку. После каждого раздела нажми **«Проверить раздел»** — увидишь ответы и пояснения. В конце скопируй отчёт и пришли мне в чат.",
+  "sections": [
+    {
+      "title": "Warm-up: travel vocabulary",
+      "instructions": "Выберите правильный вариант.",
+      "tasks": [
+        { "type": "choice", "q": "The flight was ___, so we waited at the airport for three hours.",
+          "options": ["delayed", "missed", "booked", "checked"], "answer": 0,
+          "explain": "**delayed** — задержан (рейс вылетел позже). *Missed* — «опоздали на», *booked* — «забронирован»." },
+        { "type": "choice", "q": "Where do you leave your suitcase before the flight?",
+          "options": ["at check-in", "at the gate", "at passport control", "on the platform"], "answer": 0,
+          "explain": "Багаж сдают на **check-in** (стойка регистрации). *Platform* — платформа на вокзале." },
+        { "type": "choice", "q": "Which of these can you **book**?",
+          "options": ["a hotel room", "a flight", "a souvenir", "a table at a restaurant"], "answer": [0, 1, 3],
+          "explain": "Бронируют то, что нужно заранее зарезервировать: номер, рейс, столик. Сувенир просто **buy**." }
+      ]
+    },
+    {
+      "title": "Grammar: Past Simple or Present Perfect?",
+      "instructions": "Раскройте скобки. Пишите только глагол (и наречие, если оно в скобках).",
+      "tasks": [
+        { "type": "gap",
+          "q": "1. I {} (never / be) to Italy, but I'd love to go.\n2. Last summer we {} (fly) to Spain.\n3. {} you ever {} (try) Greek food?\n4. She {} (lose) her passport two days ago.\n5. They {} (just / arrive) at the hotel — they're checking in now.",
+          "answers": [["have never been", "'ve never been"], ["flew"], ["Have"], ["tried"], ["lost"], ["have just arrived", "'ve just arrived"]],
+          "explains": [
+            "Опыт за всю жизнь без указания времени + *never* → Present Perfect: **have never been**.",
+            "*Last summer* — конкретное время в прошлом → Past Simple: **flew** (fly – flew – flown).",
+            "Вопрос об опыте с *ever* → Present Perfect: **Have** you ever…",
+            "…**tried** — третья форма *try*.",
+            "*Two days ago* → Past Simple: **lost**.",
+            "*Just* + результат виден сейчас → Present Perfect: **have just arrived**."
+          ] }
+      ]
+    },
+    {
+      "title": "Vocabulary in context",
+      "instructions": "Выберите слово, которое подходит по смыслу.",
+      "tasks": [
+        { "type": "select",
+          "q": "Our trip to Scotland was amazing. We {} a car at the airport and drove {} the coast. The weather was {} than we expected, so we spent a lot of time outside. On the last day we almost {} our flight because of the traffic!",
+          "options": [["rented", "borrowed", "lent"], ["along", "across", "through"], ["better", "good", "best"], ["lost", "missed", "passed"]],
+          "answers": [0, 0, 0, 1],
+          "explains": ["**rent a car** — взять машину напрокат.", "**drive along the coast** — ехать вдоль побережья.", "После сравнения *than* нужна сравнительная степень: **better**.", "**miss a flight** — опоздать на рейс."] }
+      ]
+    },
+    {
+      "title": "Words and meanings",
+      "instructions": "Соотнесите слова с определениями. Одно определение лишнее.",
+      "tasks": [
+        { "type": "match",
+          "items": ["itinerary", "souvenir", "sightseeing", "jet lag"],
+          "options": ["a plan of a journey with places and times", "something you buy to remember a place", "visiting famous places as a tourist", "feeling tired after a long flight across time zones", "a ticket for a journey there and back"],
+          "answers": [0, 1, 2, 3],
+          "explain": "Лишнее определение — *a ticket for a journey there and back*: это **return ticket**." }
+      ]
+    },
+    {
+      "title": "Word order",
+      "instructions": "Нажимайте на слова по порядку, чтобы собрать предложение. Чтобы убрать слово, нажмите на него ещё раз.",
+      "tasks": [
+        { "type": "order", "q": "Собери вопрос:", "items": ["Have", "you", "ever", "been", "to", "London?"],
+          "explain": "Вопрос в Present Perfect: **Have + подлежащее + ever + V3**." },
+        { "type": "order", "q": "Собери предложение:", "items": ["She", "has", "lived", "here", "since", "2020."],
+          "explain": "*Since* + точка отсчёта → Present Perfect: **has lived … since 2020**." }
+      ]
+    },
+    {
+      "title": "Reading: A weekend in Lisbon",
+      "instructions": "Прочитайте текст и определите: True (верно), False (неверно) или Not stated (в тексте не сказано).",
+      "text": "Last spring Anna went to Lisbon with her two friends. They stayed in a small flat in the old part of the city, near the river. Every morning they bought fresh pastries in a café on their street.\n\nOn the second day they took the famous yellow tram, but it was so crowded that they got off after ten minutes and walked instead. Anna has travelled a lot, but she says Lisbon is the friendliest city she has ever visited. She is already planning to go back next year — this time with her brother.",
+      "tasks": [
+        { "type": "tf",
+          "statements": ["Anna travelled to Lisbon alone.", "Their flat was close to the river.", "The tram ride lasted the whole afternoon.", "Anna's brother has been to Lisbon before.", "Anna wants to visit Lisbon again."],
+          "answers": [1, 0, 1, 2, 0],
+          "explains": ["*with her two friends* → False.", "*near the river* → True.", "*got off after ten minutes* → False.", "Про прошлые поездки брата ничего не сказано → Not stated.", "*planning to go back next year* → True."] }
+      ]
+    },
+    {
+      "title": "Writing",
+      "instructions": "Напишите сообщение другу о своей лучшей поездке.",
+      "tasks": [
+        { "type": "write",
+          "q": "Write a message to a friend about your best trip (**60–80 words**). Use at least **2 Past Simple** and **2 Present Perfect** forms.",
+          "min": 60, "max": 80,
+          "criteria": ["Есть приветствие и подпись", "Минимум 2 глагола в Past Simple", "Минимум 2 глагола в Present Perfect", "Использовал(а) 3+ слова из урока", "60–80 слов"],
+          "model": "Hi Sam!\nI've just found some photos from my trip to Kazan, and I wanted to share them. We went there last August by train. The journey took twelve hours, but it was fun. We visited the Kremlin and tried chak-chak — I've never eaten anything so sweet! I've been to many cities, but Kazan is one of my favourites. Have you ever been there?\nWrite soon!\nMax" }
+      ]
+    },
+    {
+      "title": "Speaking",
+      "instructions": "Подготовьтесь и запишите голосовое.",
+      "tasks": [
+        { "type": "speak", "q": "Talk about a place you have visited: where and when you went, what you did, and why you liked it.", "prep": 60, "time": 60,
+          "note": "Запишите ответ голосовым сообщением (1 минута) и отправьте преподавателю." }
+      ]
+    }
+  ]
+}

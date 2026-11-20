@@ -1,0 +1,77 @@
+{
+  "id": "demo-ege",
+  "title": "ЕГЭ: грамматика, лексика и письмо — тренировка",
+  "exam": "ЕГЭ по английскому",
+  "student": "Тестовый ученик",
+  "level": "B2",
+  "due": "27.11.2026",
+  "timeLimit": 60,
+  "intro": "Тренировочный вариант в формате ЕГЭ. Номера заданий совпадают с экзаменом, тексты сокращены.\n\nТаймер — ориентир, задания не блокируются. После каждого блока нажмите **«Проверить раздел»**.",
+  "sections": [
+    {
+      "title": "Грамматика",
+      "label": "Задания 19–24",
+      "instructions": "Преобразуйте слова, напечатанные заглавными буквами, так, чтобы они грамматически соответствовали содержанию текста.",
+      "tasks": [
+        { "type": "gap", "start": 19,
+          "q": "**The history of the bicycle**\nThe first bicycles {} in Europe at the beginning of the 19th century.\nThey had no pedals, and riders {} themselves forward with their feet.\nBy 1890, inventors {} the design many times.\nToday the bicycle is one of the {} ways to travel around a city.\nMillions of bikes {} every year.\nIf more people {} to work, our cities would be cleaner.",
+          "hints": ["APPEAR", "PUSH", "CHANGE", "CHEAP", "PRODUCE", "CYCLE"],
+          "answers": [["appeared"], ["pushed"], ["had changed"], ["cheapest"], ["are produced"], ["cycled"]],
+          "explains": ["Факт в прошлом (*at the beginning of the 19th century*) → Past Simple.", "Повествование в прошлом → Past Simple.", "*By 1890* — действие завершилось к моменту в прошлом → Past Perfect.", "*one of the …* → превосходная степень: **cheapest**.", "Велосипеды производят (их, а не они) + *every year* → Present Simple Passive.", "Второй тип условных предложений: *If + Past Simple, … would*."] }
+      ]
+    },
+    {
+      "title": "Словообразование",
+      "label": "Задания 25–29",
+      "instructions": "Образуйте от слов, напечатанных заглавными буквами, однокоренные слова, чтобы они грамматически и лексически соответствовали содержанию текста.",
+      "tasks": [
+        { "type": "gap", "start": 25,
+          "q": "Cycling is not only {} but also good for your health.\nDoctors say that regular cycling can improve your {}.\nHowever, many people feel {} about riding in heavy traffic.\nCity authorities are trying to make the roads safer for {}.\nThe {} of new bike lanes has made a big difference in many cities.",
+          "hints": ["ECONOMY", "FIT", "COMFORT", "RIDE", "INTRODUCE"],
+          "answers": [["economical"], ["fitness"], ["uncomfortable"], ["riders"], ["introduction"]],
+          "explains": ["Нужно прилагательное «экономный, выгодный» → **economical** (*economic* = «экономический»).", "После *your* нужно существительное → **fitness**.", "*However* → нужен противоположный смысл → отрицательная приставка: **uncomfortable**.", "Существительное-деятель во множественном числе → **riders**.", "После *The … of* — существительное → **introduction**."] }
+      ]
+    },
+    {
+      "title": "Лексика в контексте",
+      "label": "Задания 30–33 (фрагмент)",
+      "instructions": "Выберите из четырёх предложенных слов одно, которое подходит по смыслу и грамматически.",
+      "tasks": [
+        { "type": "select", "start": 30,
+          "q": "Last year my brother decided to {} part in a cycling race across the country. At first, he wasn't sure he could {} such a long distance. He trained every day and {} his diet completely. In the end, he {} third in his age group, and we were all very proud of him.",
+          "options": [["make", "take", "do", "have"], ["pass", "walk", "cover", "spend"], ["turned", "changed", "moved", "replaced"], ["went", "got", "arrived", "came"]],
+          "answers": [1, 2, 1, 3],
+          "explains": ["Устойчивое выражение **take part in** — принимать участие.", "**cover a distance** — преодолеть расстояние.", "**change one's diet** — изменить рацион.", "**come first/second/third** — занять место в соревновании."] }
+      ]
+    },
+    {
+      "title": "Чтение: заголовки",
+      "label": "Задание 10 (сокращённый формат)",
+      "instructions": "Установите соответствие между текстами A–D и заголовками. Один заголовок лишний.",
+      "tasks": [
+        { "type": "match",
+          "items": [
+            "Many museums now let visitors explore their collections online. You can walk through the halls, zoom in on paintings and read about each exhibit without leaving home.",
+            "Scientists have found that people who spend at least two hours a week in nature feel healthier and happier. Even a short walk in a park can reduce stress.",
+            "In some schools, students no longer get marks for every piece of work. Teachers give detailed comments instead, so that students focus on learning rather than grades.",
+            "Young people today change jobs more often than their parents did. Many of them say they want new experiences and are not afraid to start again."
+          ],
+          "options": ["Feedback instead of grades", "Culture from your sofa", "Why exams are getting harder", "A generation on the move", "Green time is good for you"],
+          "answers": [1, 4, 0, 3],
+          "explain": "Ключевые слова: A — *online, without leaving home*; B — *nature, healthier*; C — *no longer get marks, comments*; D — *change jobs, start again*. Лишний — *Why exams are getting harder*." }
+      ]
+    },
+    {
+      "title": "Электронное письмо",
+      "label": "Задание 37",
+      "instructions": "У вас 20–25 минут. Объём — 100–140 слов. Соблюдайте правила написания электронного письма.",
+      "text": "**From:** Ben@mail.uk\n**To:** Russian_friend@ege.ru\n**Subject:** School trips\n\n…Our class has just come back from a school trip to Edinburgh, and it was great! What school trips have you been on recently? Do you prefer trips to museums or to the countryside? Why? What can students learn on school trips that they cannot learn in the classroom?\n\nBy the way, my sister has just started learning to play the guitar…",
+      "tasks": [
+        { "type": "write", "q": "Write an email to Ben. In your message: answer his questions; ask **3 questions** about his sister's guitar lessons.",
+          "min": 100, "max": 140,
+          "criteria": ["К1: ответил(а) на все 3 вопроса Бена", "К1: задал(а) 3 вопроса о гитаре сестры", "К1: обращение, благодарность, упоминание прошлых контактов, надежда на контакт, подпись", "К2: логичные абзацы и связки", "К3: проверил(а) времена, артикли, орфографию", "100–140 слов"],
+          "model": "Hi Ben,\nThanks for your email. It was great to hear from you!\nLast month our class went on a trip to Kazan. We visited the Kremlin and a science museum. To be honest, I prefer trips to the countryside because I enjoy fresh air and long walks with my friends. I think school trips teach us things that we cannot learn from books, for example, how to work in a team and how to be independent.\nBy the way, it's great news about your sister! How long has she been learning the guitar? Who teaches her? What kind of music would she like to play?\nSorry, I have to go now. My mum is calling me.\nWrite back soon!\nBest wishes,\nMasha" }
+      ]
+    }
+  ]
+}
